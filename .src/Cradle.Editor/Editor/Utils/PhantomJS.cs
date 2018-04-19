@@ -17,6 +17,7 @@ namespace Cradle.Editor.Utils
 			string phantomExecutable =
 				Application.platform == RuntimePlatform.OSXEditor ? "phantomjs" :
 				Application.platform == RuntimePlatform.WindowsEditor ? "phantomjs.exe" :
+				Application.platform == RuntimePlatform.LinuxEditor ? "phantomjs" :
 				null;
 
 			if (phantomExecutable == null)
