@@ -13,6 +13,9 @@ namespace Cradle.Editor.Utils
 	{
 		public static PhantomOutput<ResultT> Run<ResultT>(string url, string bridgeScriptFileName = null, bool throwExOnError = true)
 		{
+
+
+
 			// Get the location of the phantom exe
 			string phantomExecutable =
 				Application.platform == RuntimePlatform.OSXEditor ? "phantomjs" :
@@ -20,8 +23,10 @@ namespace Cradle.Editor.Utils
 				Application.platform == RuntimePlatform.LinuxEditor ? "phantomjs" :
 				null;
 
-			if (phantomExecutable == null)
-				throw new NotSupportedException("Editor platform not supported.");
+			if (phantomExecutable == null) {
+				Debug.LogErrorFormat("%s", Application.platform);				
+				throw new NotSupportedException ("Editor platform not supported.");
+			}
 
 			string binPath = EditorFileUtil.FindFile(phantomExecutable);
 

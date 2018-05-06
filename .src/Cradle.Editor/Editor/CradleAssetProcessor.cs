@@ -149,6 +149,25 @@ namespace Cradle.Editor
 							));
 					}
 
+					// Linux bug fix: This environment variable is not set on Mac for some reason - https://github.com/AngryAnt/Behave-release/issues/21
+					if (Application.platform == RuntimePlatform.LinuxEditor)
+					{
+						string monoBinPath = Path.Combine(EditorApplication.applicationContentsPath, "Data/Mono/bin");
+
+						// Unity 5.4 and up
+						if (!Directory.Exists(monoBinPath))
+							monoBinPath = Path.Combine(EditorApplication.applicationContentsPath, "Mono/bin");
+
+						// Huh?
+						if (!Directory.Exists(monoBinPath))
+							Debug.LogError("For some reason I can't find the Mono directory inside Unity.app. Please open an issue on github.com/daterre/Cradle");
+
+						Environment.SetEnvironmentVariable("PATH", string.Format("{0}:{1}",
+							Environment.GetEnvironmentVariable("PATH"),
+							monoBinPath
+						));
+					}
+
 					// Detect syntax errors
 					var compilerSettings = new CompilerParameters()
 					{

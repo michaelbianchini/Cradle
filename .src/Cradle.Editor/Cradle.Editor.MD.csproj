@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Cradle.Editor</RootNamespace>
     <AssemblyName>Cradle.Editor</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,11 +35,13 @@
     <Reference Include="UnityEditor">
       <HintPath Condition="Exists('\Applications\Unity\Unity.app\Contents\Managed')">\Applications\Unity\Unity.app\Contents\Managed\UnityEditor.dll</HintPath>
       <HintPath Condition="Exists('\Applications\Unity\Unity.app\Contents\Frameworks\Managed')">\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.dll</HintPath>
+      <HintPath Condition="Exists('/opt/Unity/Editor/Data/Managed')">/opt/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath Condition="Exists('\Applications\Unity\Unity.app\Contents\Managed')">\Applications\Unity\Unity.app\Contents\Managed\UnityEngine.dll</HintPath>
       <HintPath Condition="Exists('\Applications\Unity\Unity.app\Contents\Frameworks\Managed')">\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEngine.dll</HintPath>
+      <HintPath Condition="Exists('/opt/Unity/Editor/Data/Managed')">/opt/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
